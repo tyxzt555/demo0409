@@ -1,0 +1,175 @@
+<!DOCTYPE html><?xml version="1.0" encoding="utf-8" ?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html></html>
+<head></head>
+<body>
+  <ul>
+    <li>Item A</li>
+    <li>Item B</li>
+    <li>Item C</li>
+  </ul>
+  <!-- 单行注释-->
+  <p>单行输出注释</p>
+  <p>单行不输出注释</p>
+  <!--
+  这个多行注释会输出到编译后的文件中
+  这个多行注释会输出到编译后的文件中
+  -->
+  <p>多行输出注释</p>
+  <p>多行不输出注释</p>
+  <!-- 属性-->
+  <input type="checkbox" checked="checked"/>
+  <input type="checkbox" name="agreement" checked="checked"/>
+  <body class="authed"></body><a href="/">Home</a><a href="/about" class="active">About</a>
+  <div class="link"></div><a class="link"></a>
+  <div id="button"></div><a id="button"></a><a style="color:red;background:green"></a>
+  <div id="foo" data-bar="foo" data-foo="bar"></div>
+  <!-- 文本-->
+  <!-- 单行文本内容直接跟在标签名后面-->
+  <p>这里是单行文本内容</p>
+  <!-- 管道文本使用管道符-->
+  <p>
+    这是一行管道文本，行数无限制
+    这是一行管道文本，行数无限制
+    这是一行管道文本，行数无限制
+    ……
+  </p>
+  <!-- 多行文本需要在标签名后添加点号-->
+  <p>
+    这是多行文本，注意缩进
+    这是多行文本，注意缩进
+    这是多行文本，注意缩进
+  </p>
+  <!--代码嵌入-->
+  <!--1.循环-->
+  <li><a></a></li>
+  <li><a></a></li>
+  <li><a></a></li>
+  <!--2.会被转义-->
+  <p>This code is &lt;escaped&gt;!
+  </p>
+  <!--3.不会被转义-->
+  <p>This code is <escaped>!
+  </p>
+  <!-- 插值语法-->
+  <!-- 转义字符串插值 `#{}`-->
+  <p>This will be safe: &amp;lt;span&amp;gt;escape!&amp;lt;/span&amp;gt;</p>
+  <!-- 不转义字符串插值 `!{}`-->
+  <p>This will be safe: &lt;span&gt;escape!&lt;/span&gt;</p>
+  <!-- 标签插值-->
+  <p><a href="jade-lang.com">Jade</a></p>
+  <!-- 条件语句-->
+  <div id="user">
+    <h2>Description</h2>
+    <p class="description">foo bar baz</p>
+  </div>
+  <!--unless 语句-->
+  <p>Hello, World</p>
+  <!--分支语句-->
+  <p>you have 10 friends</p>
+  <!--遍历语句-->
+  <!-- 遍历数组-->
+  <ul>
+    <li>0: zero</li>
+    <li>1: one</li>
+    <li>2: two</li>
+  </ul>
+  <!-- 遍历对象-->
+  <ul>
+    <li>1: one</li>
+    <li>2: two</li>
+    <li>3: three</li>
+  </ul>
+  <!--循环语句-->
+  <ul>
+    <li>0</li>
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+  </ul>
+  <!--mixins-->
+  <!-- Declaration-->
+  <!-- Use-->
+    <ul>
+      <li>foo</li>
+      <li>bar</li>
+      <li>baz</li>
+    </ul>
+    <ul>
+      <li>foo</li>
+      <li>bar</li>
+      <li>baz</li>
+    </ul>
+  <ul>
+      <li class="pet">cat</li>
+      <li class="pet">dog</li>
+      <li class="pet">pig</li>
+  </ul>
+    <ul id="my-list">
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+      <li>4</li>
+    </ul>
+    <div class="article">
+      <div class="article-wrapper">
+        <h1>Hello world</h1>
+        <p>No content provided</p>
+      </div>
+    </div>
+    <div class="article">
+      <div class="article-wrapper">
+        <h1>Hello world</h1>
+        <p>This is my</p>
+        <p>Amazing article</p>
+      </div>
+    </div><a href="/foo">&amp;attributes(attributes)= name</a>
+  <!--
+  includes
+  //- index.jade
+  doctype html
+  html
+    include ./includes/head.jade
+    body
+      h1 My Site
+      p Welcome to my super lame site.
+      include ./includes/foot.jade
+  //- includes/head.jade
+  head
+    title My Site
+    script(src='/javascripts/jquery.js')
+    script(src='/javascripts/app.js')
+  //- includes/foot.jade
+  #footer
+    p Copyright (c) foobar
+  
+  //继承
+  //- layout.jade
+  doctype html
+  html
+    head
+      block title
+        title Default title
+    body
+      block content
+  //- index.jade
+  extends ./layout.jade
+  
+  block title
+    title Article Title
+  
+  block content
+    h1 My Article
+  
+  //append
+  extend layout
+  
+  block append content
+      p World
+  //prepend
+  
+  extend layout
+  
+  block prepend content
+      p World
+  -->
+</body>
