@@ -1,0 +1,230 @@
+//- Doctype
+doctype html
+doctype xml
+doctype transitional
+doctype strict
+
+html
+head
+body
+    //- 标签
+    ul
+        li Item A
+        li Item B
+        li Item C
+
+    // 单行注释
+    p 单行输出注释
+    //- 这个单行注释不会输出到编译后的文件
+    p 单行不输出注释
+
+    //
+        这个多行注释会输出到编译后的文件中
+        这个多行注释会输出到编译后的文件中
+    p 多行输出注释
+    //-
+        这个多行注释不会输出到编译后的文件中
+        这个多行注释不会输出到编译后的文件中
+    p 多行不输出注释
+
+    // 属性
+    input(type='checkbox', checked)
+    input(
+        type='checkbox'
+        name='agreement'
+        checked
+    )
+
+    - var authenticated = true
+     body(class=authenticated ? 'authed' : 'anon')
+    - var currentUrl = '/about'
+    a(class={active: currentUrl === '/'} href='/') Home
+    a(class={active: currentUrl === '/about'} href='/about') About
+
+    .link
+    a.link
+    #button
+    a#button
+
+    a(style={color: 'red', background: 'green'})
+
+    - var attributes = {'data-foo': 'bar'};
+    div#foo(data-bar="foo")&attributes(attributes)
+
+    // 文本
+    // 单行文本内容直接跟在标签名后面
+    p 这里是单行文本内容
+    // 管道文本使用管道符
+    p
+        | 这是一行管道文本，行数无限制
+        | 这是一行管道文本，行数无限制
+        | 这是一行管道文本，行数无限制
+        | ……
+    // 多行文本需要在标签名后添加点号
+    p.
+        这是多行文本，注意缩进
+        这是多行文本，注意缩进
+        这是多行文本，注意缩进
+    //代码嵌入
+
+    //1.循环
+    - for (var x = 0; x < 3; x++)
+        li <a></a>
+    //2.会被转义
+    p
+        = 'This code is <escaped>!'
+    //3.不会被转义
+    p
+        != 'This code is <escaped>!'
+
+    // 插值语法
+    // 转义字符串插值 `#{}`
+    - var theGreat = "&lt;span&gt;escape!&lt;/span&gt;";
+    p This will be safe: #{theGreat}
+    // 不转义字符串插值 `!{}`
+    - var theGreat = "&lt;span&gt;escape!&lt;/span&gt;";
+    p This will be safe: !{theGreat}
+    // 标签插值
+    p #[a(href="jade-lang.com") Jade]
+
+    // 条件语句
+    - var user = { description: 'foo bar baz' }
+    - var authorised = false
+    #user
+      if user.description
+        h2 Description
+        p.description= user.description
+      else if authorised
+        h2 Description
+        p.description.
+          User has no description,
+          why not add one...
+      else
+        h1 Description
+        p.description User has no description
+    //unless 语句
+    - var con = false
+    unless con
+      p Hello, World
+
+    //分支语句
+    - var friends = 10
+    case friends
+      when 0
+        p you have no friends
+      when 1
+        p you have a friend
+      default
+        p you have #{friends} friends
+
+    //遍历语句
+    // 遍历数组
+    ul
+      each val, index in ['zero', 'one', 'two']
+        li= index + ': ' + val
+
+    // 遍历对象
+    ul
+      each val, index in {1:'one',2:'two',3:'three'}
+        li= index + ': ' + val
+
+    //循环语句
+    - var n = 0
+    ul
+      while n < 4
+        li= n++
+
+    //mixins
+    // Declaration
+    mixin list
+      ul
+        li foo
+        li bar
+        li baz
+
+    // Use
+    +list
+    +list
+
+    mixin pet(name)
+      li.pet= name
+    ul
+      +pet('cat')
+      +pet('dog')
+      +pet('pig')
+
+    mixin list(id, ...items)
+      ul(id=id)
+        each item in items
+          li= item
+
+    +list('my-list', 1, 2, 3, 4)
+
+    mixin article(title)
+      .article
+        .article-wrapper
+          h1= title
+          if block
+            block
+          else
+            p No content provided
+
+    +article('Hello world')
+
+    +article('Hello world')
+      p This is my
+      p Amazing article
+
+    mixin link(href, name)
+      a(href=href)&amp;attributes(attributes)= name
+
+    +link('/foo', 'foo')(class="btn")
+
+    //
+        includes
+        //- index.jade
+        doctype html
+        html
+          include ./includes/head.jade
+          body
+            h1 My Site
+            p Welcome to my super lame site.
+            include ./includes/foot.jade
+        //- includes/head.jade
+        head
+          title My Site
+          script(src='/javascripts/jquery.js')
+          script(src='/javascripts/app.js')
+        //- includes/foot.jade
+        #footer
+          p Copyright (c) foobar
+
+        //继承
+        //- layout.jade
+        doctype html
+        html
+          head
+            block title
+              title Default title
+          body
+            block content
+        //- index.jade
+        extends ./layout.jade
+
+        block title
+          title Article Title
+
+        block content
+          h1 My Article
+
+        //append
+        extend layout
+
+        block append content
+            p World
+        //prepend
+
+        extend layout
+
+        block prepend content
+            p World
