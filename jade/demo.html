@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>My 新文档</title>
+  </head>
+  <body>
+    <!-- 标签-->
+    <div>
+      <ul>
+        <li>111</li>
+        <li>222</li>
+        <li>333</li>
+      </ul>
+      <p>这是一个P标签</p>
+    </div>
+    <!-- 注释-->
+    <div>
+      <!-- 显示注释-->
+      <!--
+      多行显示注释
+      多行显示注释
+      多行显示注释
+      -->
+    </div>
+    <!-- 属性-->
+    <div>
+      <p><img src="111" alt="img标签1"></p>
+      <p><a><img src="222" alt="img标签2"></a></p>
+      <p>
+        <input type="checkbox" checked>
+      </p>
+    </div>
+    <!-- 语法-->
+    <div>
+      <p class="authed"></p>
+      <p><a href="/">Home</a></p>
+      <p><a href="/about" class="active">about</a></p>
+    </div>
+    <!-- class 及 id-->
+    <div>
+      <p>
+        <div class="link"></div>
+      </p>
+      <p><a class="link"></a></p>
+      <p>
+        <div id="button"></div>
+      </p>
+      <p><a id="button"></a></p>
+    </div>
+    <!-- 行内样式-->
+    <div><a style="color:red;background:green">行内样式</a></div>
+    <!-- &attributes [追加属性]-->
+    <div>
+      <div id="foo" data-foo="123"></div>
+    </div>
+    <!-- 文本 （单行文本，管道文本，多行文本）-->
+    <div>
+      <p>这里是单行文本内容</p>
+      <p>
+        这是一行管道文本，行数无限制
+        这是一行管道文本，行数无限制
+        这是一行管道文本，行数无限制
+        这是一行管道文本，行数无限制
+      </p>
+      <p>
+        这是多行文本，主要缩进
+        这是多行文本，主要缩进
+        这是多行文本，主要缩进
+        这是多行文本，主要缩进
+        
+      </p>
+    </div>
+    <!-- 代码嵌入-->
+    <div>
+      <li><a>0</a></li>
+      <li><a>1</a></li>
+      <li><a>2</a></li>
+      <p>This code is &lt;escaped&gt;!</p>
+      <p>This code is <escaped>!</p>
+    </div>
+    <!-- 插值语法-->
+    <div>
+      <!-- 转义字符串插值 '#{}'-->
+      <p>This will be safe: &lt;span&gt;escape!&lt;/span&gt;</p>
+      <!-- 不转义字符串插值 '!{}'-->
+      <p>This will be safe: <span>escape!</span></p>
+      <!-- 标签插值-->
+      <p><a href="jade-lang.com">Jade</a></p>
+    </div>
+    <!-- 条件语句-->
+    <div>
+      <!-- if-->
+      <!-- else if-->
+      <!-- else-->
+      <div id="user">
+        <h2>Description</h2>
+        <p class="description">foo bar baz</p>
+      </div>
+      <!--unless-->
+      <p>Hello world</p>
+    </div>
+    <!-- 分支语句-->
+    <div>
+      <p>you have 10 friends</p>
+      <p>you have 0 friendsb</p>
+    </div>
+    <!-- 遍历语句-->
+    <div>
+      <!--遍历数组-->
+      <ul>
+        <li>0:one</li>
+        <li>1:two</li>
+        <li>2:three</li>
+      </ul>
+      <!--遍历对象-->
+      <ul>
+        <li>1:one</li>
+        <li>2:two</li>
+        <li>3:three</li>
+      </ul>
+    </div>
+    <!-- 循环语句-->
+    <div>
+      <ul>
+        <li>0</li>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+      </ul>
+    </div>
+    <!-- mixins-->
+    <div>
+      <!-- 1 简单混合宏-->
+      <!--模板-->
+      <!--复用-->
+            <ul>
+              <li>foo</li>
+              <li>bar</li>
+              <li>baz</li>
+            </ul>
+            <ul>
+              <li>foo</li>
+              <li>bar</li>
+              <li>baz</li>
+            </ul>
+      <!-- 2 +传递参数-->
+      <ul>
+              <li class="pet">cat</li>
+              <li class="pet">dog</li>
+              <li class="pet">pig</li>
+      </ul>
+      <!-- 3 ...表示不定数量的参数-->
+            <ul id="my-list">
+              <li>1</li>
+              <li>2</li>
+              <li>3</li>
+              <li>4</li>
+            </ul>
+      <!-- 4 替换正文某个部分，可以用block占位-->
+            <div class="article">
+              <div class="article-wrapper">
+                <h1>Hello world</h1>
+                <p>No content provided</p>
+              </div>
+            </div>
+            <div class="article">
+              <div class="article-wrapper">
+                <h1>Hello world</h1>
+                <p>This is my</p>
+                <p>Amazing article</p>
+              </div>
+            </div>
+      <!-- 5 有关属性的混合宏--><a href="/foo" class="btn">foo</a>
+    </div>
+    <!--includes-->
+    <div>
+      <!--请见 index,head,footer 文件-->
+    </div>
+    <!--继承（extends）-->
+    <div>
+      <!--请见 index,head,footer 文件-->
+    </div>
+  </body>
+</html>
